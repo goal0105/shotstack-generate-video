@@ -1,7 +1,7 @@
 // You can edit this template on https://dashboard.shotstack.io/studio/overview
 
-import { config } from './config';
-const baseUrl = config.apiUrl;
+// import { config } from './config';
+// const baseUrl = config.apiUrl;
 export const template = {
   // timeline: {
   //   background: '#000000',
