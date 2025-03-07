@@ -34,7 +34,7 @@ export const generateVideo = async (
   // ];
 
   const merge = [
-      { find: 'caption', replace: 'Hello World' },
+      { find: 'video-title', replace: 'Hello World' },
       { find: 'headline', replace: 'Surprising Wildlife Wonders' },
       { find: 'voiceover', replace: 'wadup doc' },
       { find: 'image-prompt-1', replace: 'a sexy giraffe' },

@@ -1,4 +1,7 @@
 // You can edit this template on https://dashboard.shotstack.io/studio/overview
+
+import { config } from './config';
+const baseUrl = config.apiUrl;
 export const template = {
   // timeline: {
   //   background: '#000000',
@@ -211,6 +214,7 @@ export const template = {
   //     }
   //   ]
 
+
      "timeline":{
         "soundtrack":{
             "src":"https://s3-ap-southeast-2.amazonaws.com/shotstack-assets/music/moment.mp3",
@@ -218,22 +222,45 @@ export const template = {
         },
         "background":"#000000",
         "tracks":[
-            {
-                "clips":[
-                    {
-                        "asset": {
-                            "type": "text",
-                             text: '{{ caption }}'
-                        },
-                        "start":0,
-                        "length":5,
-                        "transition":{
-                            "in":"fade",
-                            "out":"fade"
-                       }
-                    }
-                ]
-            }
+          {
+            "clips": [
+                {
+                    "asset": {
+                        "type": "caption",
+                        "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
+                        "font": {
+                            "color": "#c0392b",
+                            "family": "Lilita One",
+                            "lineHeight": 1,
+                            "size": 20
+                        }
+                    },
+                    "start": 0,
+                    "length": "end"
+                }
+            ]
+        },
+          {
+              "clips":[
+                  {
+                      "asset": {
+                          "type": 'text',
+                            text: '{{video-title}}',
+                            "font": {
+                            "family": "Clear Sans",
+                            "size": 32,
+                            "color": "#FFFFFF"
+                        }
+                      },
+                      "start":0,
+                      "length":25,
+                      "transition":{
+                          "in":"fade",
+                          "out":"fade"
+                      }
+                  }
+              ]
+          }
         ]
     },
     
@@ -247,7 +274,7 @@ export const template = {
   },
   merge: [
     {
-      find: 'caption',
+      find: 'video-title',
       replace: 'Hello World'
     },
     {
@@ -288,3 +315,4 @@ export const template = {
     }
   ]
 };
+
