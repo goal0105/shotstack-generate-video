@@ -33,47 +33,25 @@ export const generateVideo = async (
   //   { find: 'voiceover', replace: voiceover.text }
   // ];
 
-  // console.log('merge', merge);
+  const merge = [
+      { find: 'caption', replace: 'Hello World' },
+      { find: 'headline', replace: 'Surprising Wildlife Wonders' },
+      { find: 'voiceover', replace: 'wadup doc' },
+      { find: 'image-prompt-1', replace: 'a sexy giraffe' },
+      { find: 'image-prompt-2', replace: 'a sexy giraffe' },
+      { find: 'image-prompt-3', replace: 'a sexy giraffe' },
+      { find: 'image-prompt-4', replace: 'a sexy giraffe' },
+      { find: 'image-prompt-5', replace: 'a sexy giraffe' },
+      { find: 'image-prompt-6', replace: 'a sexy giraffe' },
+      { find: 'voice', replace: configData.voice }
+    ];
+  
+  console.log('merge', merge);
 
-  // const payload = {
-  //   ...template,
-  //   merge: merge
-  // };
-
-    const payload = {
-      "timeline":{
-          "soundtrack":{
-              "src":"https://s3-ap-southeast-2.amazonaws.com/shotstack-assets/music/moment.mp3",
-              "effect":"fadeOut"
-          },
-          "background":"#000000",
-          "tracks":[
-              {
-                  "clips":[
-                      {
-                          "asset": {
-                              "type": "text",
-                              "text": "HELLO WORLD"
-                          },
-                          "start":0,
-                          "length":5,
-                          "transition":{
-                              "in":"fade",
-                              "out":"fade"
-                         }
-                      }
-                  ]
-              }
-          ]
-      },
-      "output":{
-          "format":"mp4",
-          "size": {
-              "width": 1024,
-              "height": 576
-          }
-      }
-  }
+  const payload = {
+    ...template,
+    merge: merge
+  };
 
   console.log('payload', payload);
 
