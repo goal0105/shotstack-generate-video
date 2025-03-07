@@ -1,8 +1,8 @@
-# RapidReels
+# Shotstack Social Media Video Maker
 
-RapidReels is an application that allows you to create faceless TikTok videos using generative AI.
+Shotstack demo is an application that allows you to create demo video.
 
-View demo: https://shotstack.io/demos/social-media-video-maker/
+View demo:  https://shotstack-generate-video-demo.vercel.app/
 
 ## Getting Started
 
