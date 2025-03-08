@@ -7,7 +7,8 @@ export default function HomePage() {
   const [config, setConfig] = useState({
     platform: '',
     content: '',
-    voice: ''
+    voice: '',
+    videoTitle : ''
   });
 
   const { videoUrl, status, handleCreate } = useVideoGenerator(config);

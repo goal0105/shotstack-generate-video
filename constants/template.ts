@@ -214,7 +214,6 @@ export const template = {
   //     }
   //   ]
 
-
      "timeline":{
         "soundtrack":{
             "src":"https://s3-ap-southeast-2.amazonaws.com/shotstack-assets/music/moment.mp3",
@@ -222,45 +221,57 @@ export const template = {
         },
         "background":"#000000",
         "tracks":[
-          {
-            "clips": [
-                {
-                    "asset": {
-                        "type": "caption",
-                        "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
-                        "font": {
-                            "color": "#c0392b",
-                            "family": "Lilita One",
-                            "lineHeight": 1,
-                            "size": 20
-                        }
-                    },
-                    "start": 0,
-                    "length": "end"
-                }
-            ]
-        },
-          {
-              "clips":[
-                  {
-                      "asset": {
-                          "type": 'text',
-                            text: '{{video-title}}',
+            {
+                "clips": [
+                    {
+                        "asset": {
+                            "type": "caption",
+                            "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
                             "font": {
-                            "family": "Clear Sans",
-                            "size": 32,
-                            "color": "#FFFFFF"
+                                "color": "#c0392b",
+                                "family": "Lilita One",
+                                "lineHeight": 1,
+                                "size": 20
+                            }
+                        },
+                        "start": 0,
+                        "length": "end"
+                    }
+                ]
+            },
+            {
+                "clips":[
+                    {
+                        "asset": {
+                            "type": 'text',
+                              text: '{{video-title}}',
+                              "font": {
+                              "family": "Clear Sans",
+                              "size": 32,
+                              "color": "#FFFFFF"
+                          }
+                        },
+                        "start" : 0,
+                        "length": 24,
+                        "transition":{
+                            "in":"fade",
+                            "out":"fade"
                         }
-                      },
-                      "start":0,
-                      "length":25,
-                      "transition":{
-                          "in":"fade",
-                          "out":"fade"
-                      }
-                  }
-              ]
-          }
+                    }
+                ]
+            }
+            // {
+            //   "clips": [
+            //       {
+            //           "asset": {
+            //               "type": "video",
+            //               "src": "https://github.com/shotstack/test-media/raw/main/captioning/scott-ko.mp4"
+            //           },
+            //           "start": 0,
+            //           "length": 25.9
+            //       }
+            //   ]
+            // }
         ]
     },
     

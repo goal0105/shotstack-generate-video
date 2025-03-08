@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:19,000
+When I was 27 years old, I left a very demanding job in management consulting for a job that
+
+2
+00:00:19,000 --> 00:00:23,000
+was even more demanding, teaching.
+
+3
+00:00:23,000 --> 00:00:28,000
+I went to teach seventh graders math in the New York City public schools.
+
+4
+00:00:28,000 --> 00:00:33,000
+And like any teacher, I made quizzes and tests, I gave out homework assignments.
+
+5
+00:00:33,000 --> 00:00:37,000
+When the work came back, I calculated grades.
+
+6
+00:00:37,000 --> 00:00:45,000
+What struck me was that IQ was not the only difference between my best and my worst students.
+
+7
+00:00:45,000 --> 00:00:50,000
+Some of my strongest performers did not have stratospheric IQ scores.
+
+8
+00:00:50,000 --> 00:00:54,000
+Some of my smartest kids weren't doing so well.
+
+9
+00:00:54,000 --> 00:00:55,000
+And that got me thinking.
+
+10
+00:00:55,000 --> 00:01:01,000
+The kinds of things you need to learn in seventh grade math, sure, they're hard.
+
+11
+00:01:01,000 --> 00:01:04,000
+Ratio, decimals, the area of a parallelogram.
+
+12
+00:01:04,000 --> 00:01:07,000
+But these concepts are not impossible.
+
+13
+00:01:07,000 --> 00:01:14,000
+And I was firmly convinced that every one of my students could learn the material if
+
+14
+00:01:14,000 --> 00:01:17,000
+they worked hard and long enough.
+
+15
+00:01:17,000 --> 00:01:23,000
+After several more years of teaching, I came to the conclusion that what we need in education
+
+16
+00:01:23,000 --> 00:01:29,000
+is a much better understanding of students and learning from a motivational perspective,
+
+17
+00:01:29,000 --> 00:01:31,000
+from a psychological perspective.
+
+18
+00:01:31,000 --> 00:01:38,000
+In education, the one thing we know how to measure best is IQ.
+
+19
+00:01:38,000 --> 00:01:45,000
+But what if doing well in school and in life depends on much more than your ability to
+
+20
+00:01:45,000 --> 00:01:48,000
+learn quickly and easily?
+
+21
+00:01:48,000 --> 00:01:54,000
+So I left the classroom and I went to graduate school to become a psychologist.
+
+22
+00:01:54,000 --> 00:01:59,000
+I started studying kids and adults in all kinds of super challenging settings.
+
+23
+00:01:59,000 --> 00:02:04,000
+And in every study my question was, who is successful here and why?
+
+24
+00:02:04,000 --> 00:02:08,000
+My research team and I went to West Point Military Academy.
+
+25
+00:02:08,000 --> 00:02:13,000
+We tried to predict which cadets would stay in military training and which would drop
+
+26
+00:02:13,000 --> 00:02:14,000
+out.
+
+27
+00:02:14,000 --> 00:02:20,000
+We went to the national spelling bee and tried to predict which children would advance farthest
+
+28
+00:02:20,000 --> 00:02:22,000
+in competition.
+
+29
+00:02:22,000 --> 00:02:27,000
+We studied rookie teachers working in really tough neighborhoods, asking which teachers
+
+30
+00:02:27,000 --> 00:02:31,000
+are still going to be here in teaching by the end of the school year.
+
+31
+00:02:31,000 --> 00:02:37,000
+And of those, who will be the most effective at improving learning outcomes for their students?
+
+32
+00:02:37,000 --> 00:02:41,000
+We partnered with private companies asking which of these salespeople is going to keep
+
+33
+00:02:41,000 --> 00:02:42,000
+their jobs?
+
+34
+00:02:42,000 --> 00:02:44,000
+And who is going to earn the most money?
+
+35
+00:02:44,000 --> 00:02:51,000
+In all those very different contexts, one characteristic emerged as a significant predictor
+
+36
+00:02:51,000 --> 00:02:52,000
+of success.
+
+37
+00:02:52,000 --> 00:02:54,000
+And it wasn't social intelligence.
+
+38
+00:02:54,000 --> 00:02:59,000
+It wasn't good looks, physical health, and it wasn't IQ.
+
+39
+00:02:59,000 --> 00:03:02,000
+It was grit.
+
+40
+00:03:02,000 --> 00:03:07,000
+Grit is passion and perseverance for very long term goals.
+
+41
+00:03:07,000 --> 00:03:09,000
+Grit is having stamina.
+
+42
+00:03:09,000 --> 00:03:11,000
+Grit is sticking with your future.
+
+43
+00:03:11,000 --> 00:03:19,000
+Day in, day out, not just for the week, not just for the month, but for years, and working
+
+44
+00:03:19,000 --> 00:03:23,000
+really hard to make that future a reality.
+
+45
+00:03:23,000 --> 00:03:28,000
+Grit is living life like it's a marathon, not a sprint.
+
+46
+00:03:28,000 --> 00:03:33,000
+A few years ago, I started studying grit in the Chicago public schools.
+
+47
+00:03:33,000 --> 00:03:38,000
+I asked thousands of high school juniors to take grit questionnaires, and then waited
+
+48
+00:03:38,000 --> 00:03:41,000
+around more than a year to see who would graduate.
+
+49
+00:03:41,000 --> 00:03:47,000
+Turns out that grittier kids were significantly more likely to graduate.
+
+50
+00:03:47,000 --> 00:03:53,000
+Even when I matched them on every characteristic I could measure, things like family income,
+
+51
+00:03:53,000 --> 00:03:59,000
+standardized achievement test scores, even how safe kids felt when they were at school.
+
+52
+00:03:59,000 --> 00:04:04,000
+So it's not just at West Point or the National Spelling Bee that grit matters, it's also
+
+53
+00:04:04,000 --> 00:04:09,000
+in school, especially for kids at risk for dropping out.
+
+54
+00:04:09,000 --> 00:04:15,000
+To me, the most shocking thing about grit is how little we know, how little science knows
+
+55
+00:04:15,000 --> 00:04:17,000
+about building it.
+
+56
+00:04:17,000 --> 00:04:21,000
+Every day, parents and teachers ask me, how do I build grit in kids?
+
+57
+00:04:21,000 --> 00:04:24,000
+What do I do to teach kids a solid work ethic?
+
+58
+00:04:24,000 --> 00:04:28,000
+How do I keep them motivated for the long run?
+
+59
+00:04:28,000 --> 00:04:32,000
+The honest answer is, I don't know.
+
+60
+00:04:32,000 --> 00:04:35,000
+What I do know is that talent doesn't make you gritty.
+
+61
+00:04:35,000 --> 00:04:41,000
+Our data show very clearly that there are many talented individuals who simply do not
+
+62
+00:04:41,000 --> 00:04:44,000
+follow through on their commitments.
+
+63
+00:04:44,000 --> 00:04:52,000
+In fact, in our data, grit is usually unrelated or even inversely related to measures of talent.
+
+64
+00:04:52,000 --> 00:04:59,000
+So far, the best idea I've heard about building grit in kids is something called growth mindset.
+
+65
+00:04:59,000 --> 00:05:05,000
+This is an idea developed at Stanford University by Carol Dweck, and it is the belief that
+
+66
+00:05:05,000 --> 00:05:11,000
+the ability to learn is not fixed, that it can change with your effort.
+
+67
+00:05:11,000 --> 00:05:17,000
+Dr. Dweck has shown that when kids read and learn about the brain and how it changes and
+
+68
+00:05:17,000 --> 00:05:24,000
+grows in response to challenge, they're much more likely to persevere when they fail, because
+
+69
+00:05:24,000 --> 00:05:29,000
+they don't believe that failure is a permanent condition.
+
+70
+00:05:29,000 --> 00:05:35,000
+So growth mindset is a great idea for building grit, but we need more.
+
+71
+00:05:35,000 --> 00:05:38,000
+And that's where I'm going to end my remarks, because that's where we are.
+
+72
+00:05:38,000 --> 00:05:40,000
+That's the work that stands before us.
+
+73
+00:05:40,000 --> 00:05:46,000
+We need to take our best ideas, our strongest intuitions, and we need to test them.
+
+74
+00:05:46,000 --> 00:05:51,000
+We need to measure whether we've been successful, and we have to be willing to fail, to be
+
+75
+00:05:51,000 --> 00:05:56,000
+wrong, to start over again with lessons learned.
+
+76
+00:05:56,000 --> 00:06:02,000
+In other words, we need to be gritty about getting our kids grittier.
+
+77
+00:06:02,000 --> 00:06:03,000
+Thank you.
+
+78
+00:06:03,000 --> 00:06:05,000
+Thank you.
+

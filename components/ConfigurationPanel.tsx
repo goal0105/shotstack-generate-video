@@ -5,6 +5,9 @@ import CreateButton from '@components/CreateButton';
 // import TextInput from '@components/TextInput';
 import { VideoStatus } from '@constants/status';
 import { VideoConfig } from '@models/config';
+import TextArea from './TextArea';
+
+import React, { useState } from 'react';
 
 type ConfigurationPanelProps = {
   config: VideoConfig;
@@ -28,21 +31,30 @@ function ConfigurationPanel({
       status === ''
     );
 
+    const [text, setText] = useState('');
+
+    const handleTextChange = (newValue: string) => {
+      setText(newValue);
+      setConfig({ ...config, videoTitle: newValue});
+    };
+  
   return (
     // <div className="bg-background h-full p-5 border-r border-gray-300 overflow-y-auto">
-    //   <PlatformSelection config={config} setConfig={setConfig} />
+      // <PlatformSelection config={config} setConfig={setConfig} />
     //   <ContentDropdown config={config} setConfig={setConfig} />
-    //   <VoiceSelection config={config} setConfig={setConfig} /> 
+    //   <VoiceSelection config={config} setConfig={setConfig} />  border-gray-300 
     // </div>
 
     <div className="bg-background h-screen p-5 border-r border-gray-300 flex items-center justify-center">
       <div className="text-center">
         <p className="text-3xl font-bold mb-4 p-2">Creating Video Demo</p>
-        {/* <TextInput  
-        label="Caption"
-        value={''}
-        onChange={onChange}
-        placeholder = "input the text"/>         */}
+        
+        <TextArea  
+          label="Video Title"
+          value={text}
+          onChange={handleTextChange}
+          placeholder = "input the text to display video title"/>      
+
         <CreateButton onCreate={onCreate} disabled={false} />
 
       </div>

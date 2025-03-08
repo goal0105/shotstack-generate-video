@@ -2,6 +2,7 @@ export type VideoConfig = {
   platform: string;
   content: string;
   voice: string;
+  videoTitle : string;
 };
 
 export type ConfigProps = {

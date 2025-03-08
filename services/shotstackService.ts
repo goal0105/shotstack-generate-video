@@ -33,19 +33,27 @@ export const generateVideo = async (
   //   { find: 'voiceover', replace: voiceover.text }
   // ];
 
-  const merge = [
-      { find: 'video-title', replace: 'Hello World' },
-      { find: 'headline', replace: 'Surprising Wildlife Wonders' },
-      { find: 'voiceover', replace: 'wadup doc' },
-      { find: 'image-prompt-1', replace: 'a sexy giraffe' },
-      { find: 'image-prompt-2', replace: 'a sexy giraffe' },
-      { find: 'image-prompt-3', replace: 'a sexy giraffe' },
-      { find: 'image-prompt-4', replace: 'a sexy giraffe' },
-      { find: 'image-prompt-5', replace: 'a sexy giraffe' },
-      { find: 'image-prompt-6', replace: 'a sexy giraffe' },
-      { find: 'voice', replace: configData.voice }
-    ];
+  let replaceVidoeTitle = '';
+  if (!configData.videoTitle) {
+    replaceVidoeTitle = 'Hello World';
+  }
+  else {
+    replaceVidoeTitle = configData.videoTitle
+  }
   
+  const merge = [
+    { find: 'video-title', replace: replaceVidoeTitle },
+    { find: 'headline', replace: 'Surprising Wildlife Wonders' },
+    { find: 'voiceover', replace: 'wadup doc' },
+    { find: 'image-prompt-1', replace: 'a sexy giraffe' },
+    { find: 'image-prompt-2', replace: 'a sexy giraffe' },
+    { find: 'image-prompt-3', replace: 'a sexy giraffe' },
+    { find: 'image-prompt-4', replace: 'a sexy giraffe' },
+    { find: 'image-prompt-5', replace: 'a sexy giraffe' },
+    { find: 'image-prompt-6', replace: 'a sexy giraffe' },
+    { find: 'voice', replace: configData.voice }
+  ];
+
   console.log('merge', merge);
 
   const payload = {
