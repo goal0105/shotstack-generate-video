@@ -14,6 +14,13 @@ import { template } from '@constants/template';
 const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/stage';
 const SHOTSTACK_API_KEY = process.env.SHOTSTACK_API_KEY || '';
 
+// "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
+// "src": "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt",
+// "src": "https://github.com/shotstack/test-media/raw/main/captioning/transcript.srt",
+
+const CAPTION_ENGLISH = "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt";
+const CAPTION_HEBREW = "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt";
+
 export const generateVideo = async (
   configData: VideoConfig
 ): Promise<string> => {
@@ -40,9 +47,20 @@ export const generateVideo = async (
   else {
     replaceVidoeTitle = configData.videoTitle
   }
+
+  let captionSrc = '';
+  if (configData.caption === 'English') {  
+    captionSrc = CAPTION_ENGLISH;
+  }
+  else {
+    captionSrc = CAPTION_HEBREW;
+  }
+  
+  console.log('Caption Source : ', captionSrc);
   
   const merge = [
     { find: 'video-title', replace: replaceVidoeTitle },
+    { find: 'caption-src', replace: captionSrc },
     { find: 'headline', replace: 'Surprising Wildlife Wonders' },
     { find: 'voiceover', replace: 'wadup doc' },
     { find: 'image-prompt-1', replace: 'a sexy giraffe' },

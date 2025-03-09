@@ -1,7 +1,79 @@
 // You can edit this template on https://dashboard.shotstack.io/studio/overview
+import fs from "fs";
+import { auto } from "openai/_shims/registry.mjs";
+import SrtParser  from "srt-parser-2";
 
-// import { config } from './config';
-// const baseUrl = config.apiUrl;
+interface Caption {
+  id: string;           // ID is a string
+  startTime: string;    // Start time in "hh:mm:ss,ms" format
+  startSeconds: number; // Start time in seconds
+  endTime: string;      // End time in "hh:mm:ss,ms" format
+  endSeconds: number;   // End time in seconds
+  text: string;         // Subtitle text
+}
+
+function parseSrtFile(srtFilePath: string) {
+  const parser = new SrtParser();
+
+  try {
+    const srtContent = fs.readFileSync(srtFilePath, 'utf-8');
+    const captions = parser.fromSrt(srtContent);
+    // console.log(captions);
+    return captions;
+  } catch (error) {
+    console.error("Error parsing SRT file:", error);
+    return [];
+  }
+}
+
+type Clip = {
+  asset: {
+    type: string;
+    html?: string;
+    css?: string;
+  };
+  start: number;
+  length: number | string;
+  offset: {
+    x: Number;
+    y: Number;
+ },
+  transition?: {
+    in: string;
+    out: string;
+  };
+};
+
+function generateClips(srtFilePath: string) :  Clip[] {
+  const clips: Clip[] = [];
+  const captions: Caption[] = parseSrtFile(srtFilePath) as Caption[];
+
+  for (let i = 0; i < 6; i++) {
+    clips.push({
+      asset: {
+        type: 'html',
+        html: `<p> Clip ${captions[i].text}</p>`,
+        css: "p {font-family: 'Open Sans'; color: #ffffff; font-size: 42px; text-align: center; }",
+      },
+      start: captions[i].startSeconds, // Each clip starts after the previous one (6s duration)
+      length: captions[i].endSeconds,    
+      offset: {
+        x: -0.25,
+        y: -0.16
+      },
+      transition: {
+        in: "fade",
+        out: "fade"
+      }
+    });
+  }
+
+  // console.log(clips);
+  return clips;
+}
+
+const clips: Clip[] =  generateClips("public/captions/caption-1.srt");
+
 export const template = {
   // timeline: {
   //   background: '#000000',
@@ -219,6 +291,11 @@ export const template = {
             "src":"https://s3-ap-southeast-2.amazonaws.com/shotstack-assets/music/moment.mp3",
             "effect":"fadeOut"
         },
+        "fonts": [
+          {
+              "src": "https://templates.shotstack.io/basic/asset/font/opensans-regular.ttf"
+          }
+        ],
         "background":"#000000",
         "tracks":[
             {
@@ -226,12 +303,15 @@ export const template = {
                     {
                         "asset": {
                             "type": "caption",
-                            "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
+                            "src": '{{ caption-src }}',
                             "font": {
-                                "color": "#c0392b",
-                                "family": "Lilita One",
+                                "color": "#000000",
+                                "family": "Open Sans",
                                 "lineHeight": 1,
                                 "size": 20
+                            },
+                            "background": {
+                                "color": "#FFFFFF"
                             }
                         },
                         "start": 0,
@@ -259,22 +339,55 @@ export const template = {
                         }
                     }
                 ]
-            }
-            // {
-            //   "clips": [
-            //       {
-            //           "asset": {
-            //               "type": "video",
-            //               "src": "https://github.com/shotstack/test-media/raw/main/captioning/scott-ko.mp4"
-            //           },
-            //           "start": 0,
-            //           "length": 25.9
-            //       }
-            //   ]
-            // }
+            },
+
+            // { clips }// Dynamic text clips
+
+          //   {
+          //     "clips":[
+          //           {
+          //             "asset": {
+          //               "type": "html",
+          //               "html": "<p>גדגדגדגדג</p>",
+          //               "css": "p {font-family: 'Open Sans'; color: #ffffff; font-size: 42px; text-align: center; }",
+          //               "width": 400,
+          //               "height": 200,
+          //               "background": "transparent",
+          //               "position": "center"							 
+          //             },
+          //             "start": 0,
+          //             "length": 11,
+          //             "offset": {
+          //                 "x": -0.25,
+          //                 "y": -0.16
+          //             },
+          //             "transition": {
+          //                 "in": "fade",
+          //                 "out": "fade"
+          //             },
+          //             "effect": "zoomIn"
+          //           }
+          //     ]
+          // },
+          {
+            "clips": [
+                {
+                    "asset": {
+                        "type": "video",
+                        "src": "https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/footage/earth.mp4",
+                        "trim": 5
+                    },
+                    "start": 0,
+                    "length": "auto",
+                    "transition": {
+                        "in": "fade",
+                        "out": "fade"
+                    }
+                }
+            ]
+          }
         ]
     },
-    
     output: {
     format: 'mp4',
     fps: 25,
@@ -287,6 +400,10 @@ export const template = {
     {
       find: 'video-title',
       replace: 'Hello World'
+    },
+    {
+      find: 'caption-src',
+      replace: 'Caption Source'
     },
     {
       find: 'headline',

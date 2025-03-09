@@ -13,7 +13,7 @@ function CreateButton({ onCreate, disabled }: CreateButtonProps) {
           disabled ? 'bg-gray-400 cursor-not-allowed' : 'hover:bg-blue-700'
         }`}
         onClick={onCreate}
-        // disabled={disabled}
+        disabled={disabled}
       >
         Create Video
       </button>

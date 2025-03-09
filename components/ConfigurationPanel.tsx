@@ -2,9 +2,9 @@ import PlatformSelection from '@components/PlatformSelection';
 import ContentDropdown from '@components/ContentDropdown';
 import VoiceSelection from '@components/VoiceSelection';
 import CreateButton from '@components/CreateButton';
-// import TextInput from '@components/TextInput';
 import { VideoStatus } from '@constants/status';
 import { VideoConfig } from '@models/config';
+import CaptionSelection from './CaptionSelection';
 import TextArea from './TextArea';
 
 import React, { useState } from 'react';
@@ -22,7 +22,8 @@ function ConfigurationPanel({
   onCreate,
   status
 }: ConfigurationPanelProps) {
-  const isValid = Object.values(config).every(option => option !== '');
+  // const isValid = Object.values(config).every(option => option !== '');
+  let isValid = true;
   const isDisabled =
     !isValid ||
     !(
@@ -53,13 +54,16 @@ function ConfigurationPanel({
           label="Video Title"
           value={text}
           onChange={handleTextChange}
-          placeholder = "input the text to display video title"/>      
+          placeholder="input the text to display video title"/>      
 
-        <CreateButton onCreate={onCreate} disabled={false} />
+        <CaptionSelection 
+          config={config} 
+          setConfig={setConfig}/>
+          
+        <CreateButton onCreate={onCreate} disabled={isDisabled} />
 
       </div>
     </div>
   );
 }
-
 export default ConfigurationPanel;

@@ -8,7 +8,8 @@ export default function HomePage() {
     platform: '',
     content: '',
     voice: '',
-    videoTitle : ''
+    videoTitle : '',
+    caption : 'English'
   });
 
   const { videoUrl, status, handleCreate } = useVideoGenerator(config);
