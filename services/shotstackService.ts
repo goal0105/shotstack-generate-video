@@ -10,16 +10,14 @@ import {
 
 import { template } from '@constants/template';
 
-// const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/v1';
-const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/stage';
+const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/v1';
+// const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/stage';
 const SHOTSTACK_API_KEY = process.env.SHOTSTACK_API_KEY || '';
 
-// "src": "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt",
-// "src": "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt",
-// "src": "https://github.com/shotstack/test-media/raw/main/captioning/transcript.srt",
-
 const CAPTION_ENGLISH = "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt";
-const CAPTION_HEBREW = "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt";
+// const CAPTION_HEBREW = "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt";
+const CAPTION_HEBREW = "https://shotstackzone.b-cdn.net/captions/caption-1.srt";
+
 
 export const generateVideo = async (
   configData: VideoConfig
