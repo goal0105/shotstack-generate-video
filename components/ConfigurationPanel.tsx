@@ -8,6 +8,7 @@ import CaptionSelection from './CaptionSelection';
 import TextArea from './TextArea';
 
 import React, { useState } from 'react';
+import FileUpload from './FileUpload';
 
 type ConfigurationPanelProps = {
   config: VideoConfig;
@@ -57,8 +58,10 @@ function ConfigurationPanel({
           placeholder="input the text to display video title"/>      
 
         <CaptionSelection 
-          config={config} 
+          config={config} //seting caption
           setConfig={setConfig}/>
+
+        <FileUpload/>
           
         <CreateButton onCreate={onCreate} disabled={isDisabled} />
 

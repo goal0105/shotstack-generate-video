@@ -7,7 +7,7 @@ import {
   generateVoiceover,
   generateImagePrompts
 } from '@services/openAIService';
-
+  
 import { template } from '@constants/template';
 
 const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/v1';
