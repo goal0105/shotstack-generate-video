@@ -73,16 +73,18 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
         body: formData,
       });
 
+
+      if (!response.ok) {
+        const errorText = await response.text(); // Get error details
+        throw new Error(`Upload failed: ${errorText}`);
+      }
+
       const data = await response.json();
 
-      if (response.ok) {
-        setMessage("File uploaded successfully!");
-        setFileUrl(data.fileUrl);
-        setStrUrl(data.strUrl);
+      setMessage("File uploaded successfully!");
+      setFileUrl(data.fileUrl);
+      setStrUrl(data.strUrl);
 
-      } else {
-        setMessage(`Upload failed: ${data.message}`);
-      }
     } catch (error) {
       setMessage("An error occurred while uploading." + error);
     } finally {
