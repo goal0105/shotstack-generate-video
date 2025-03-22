@@ -9,7 +9,8 @@ export default function HomePage() {
     content: '',
     voice: '',
     videoTitle : '',
-    caption : 'English'
+    caption : 'English',
+    videoFile : ''
   });
 
   const { videoUrl, status, handleCreate } = useVideoGenerator(config);

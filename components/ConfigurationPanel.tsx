@@ -61,7 +61,10 @@ function ConfigurationPanel({
           config={config} //seting caption
           setConfig={setConfig}/>
 
-        <FileUpload/>
+        <FileUpload
+         config={config}
+         setConfig={setConfig}
+        />
           
         <CreateButton onCreate={onCreate} disabled={isDisabled} />
 

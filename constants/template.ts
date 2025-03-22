@@ -106,7 +106,7 @@ export const template = {
                           "lineHeight": 0.8
                         },
                         "margin": {
-                          "top": 0.85
+                          "top": 0.88
                         }
                       },
                       "start": 0,
@@ -140,7 +140,7 @@ export const template = {
                 {
                     "asset": {
                         "type": "video",
-                        "src": "https://shotstack-assets.s3.amazonaws.com/footage/night-sky.mp4"
+                        "src": '{{VIDEO-FILE}}'
                     },
                     "start": 0,
                     "length": "auto"
@@ -165,6 +165,10 @@ export const template = {
     {
       find: 'caption-src',
       replace: 'Caption Source'
+    },
+    {
+      find : 'VIDEO-FILE',
+      replace : ''
     },
     {
       find: 'headline',

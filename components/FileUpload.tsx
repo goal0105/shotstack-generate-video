@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
+import { ConfigProps } from '@models/config';
 
-export default function FileUpload() {
+export default function FileUpload({ config, setConfig }: ConfigProps) {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (fileUrl) {
+      setConfig({ ...config, videoFile: fileUrl });
+    }
+  }, [fileUrl, config, setConfig]);
+
+  console.log("fileUrl", config.videoFile);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -24,7 +33,6 @@ export default function FileUpload() {
     const formData = new FormData();
     formData.append("file", file);
 
-    console.log("uploading");
     try {
       const response = await fetch("/api/upload", {
         method: "POST",

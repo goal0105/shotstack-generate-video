@@ -9,6 +9,7 @@ import {
 } from '@services/openAIService';
   
 import { template } from '@constants/template';
+import { config } from 'process';
 
 const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/v1';
 // const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/stage';
@@ -54,9 +55,10 @@ export const generateVideo = async (
     captionSrc = CAPTION_HEBREW;
   }
   
-  console.log('Caption Source : ', captionSrc);
+  console.log('Video file : ', configData.videoFile);
   
   const merge = [
+    { find: 'VIDEO-FILE', replace : configData.videoFile},
     { find: 'video-title', replace: replaceVidoeTitle },
     { find: 'caption-src', replace: captionSrc },
     { find: 'headline', replace: 'Surprising Wildlife Wonders' },
