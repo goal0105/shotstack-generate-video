@@ -71,9 +71,7 @@ async function uploadAudioFile(videoPath: string)
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
-  }
+  if (req.method === 'POST') {
 
   console.log("Uploading file...");
   try {
@@ -103,7 +101,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // upload video File
     const videoBuffer = await fs.promises.readFile(videoFilePath);
-    console.log("File Path : " + uploadedFile.filepath);
     const fileName = path.basename(uploadedFile.originalFilename || "uploaded_file");
     const uniqueFileName = `${Date.now()}_${fileName}`;
 
@@ -164,6 +161,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (error) {
     console.error("Error during file upload:", error);
     return res.status(500).json({ message: error instanceof Error ? error.message : "Unknown error" });
+  }
+  }
+  else {
+    return res.status(405).json({ message: "Method not allowed" });
   }
 };
 
