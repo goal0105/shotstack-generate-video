@@ -5,6 +5,7 @@ export type VideoConfig = {
   videoTitle : string;
   caption: string;  // video subtitle
   videoFile : string;
+  strFile ?: string;
 };
 
 export type ConfigProps = {

@@ -1,22 +1,56 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ConfigProps } from '@models/config';
+const ALLOWED_TYPES = ["video/mp4", "video/quicktime", "video/x-msvideo", "video/webm"]
+const MAX_FILE_SIZE = 500 * 1024 * 1024 // 500MB
 
 export default function FileUpload({ config, setConfig }: ConfigProps) {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState<string | null>(null);
+  const [strUrl, setStrUrl] = useState<string | null>(null);
+  const isFirstRender = useRef(true);
 
-  useEffect(() => {
-    if (fileUrl) {
-      setConfig({ ...config, videoFile: fileUrl });
+  const updateConfig = useCallback(() => {
+    if (fileUrl && strUrl) {
+      // Avoid unnecessary updates by checking if values have actually changed
+      if (config.videoFile !== fileUrl || config.strFile !== strUrl) {
+        setConfig(prevConfig => ({
+          ...prevConfig,
+          videoFile: fileUrl,
+          strFile: strUrl,
+        }));
+        console.log("Updated Config:", { videoFile: fileUrl, strFile: strUrl });
+      }
     }
-  }, [fileUrl, config, setConfig]);
+  }, [fileUrl, strUrl, config, setConfig]);
 
-  console.log("fileUrl", config.videoFile);
+  
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    updateConfig();
+  }, [fileUrl, strUrl, updateConfig]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
+
+    if (event.target.files) {
+    const selectedFile = event.target.files[0]
+
+      if (!ALLOWED_TYPES.includes(selectedFile.type)) {
+        setMessage("Please select a valid video file (MP4, MOV, AVI, or WebM)")
+        return
+      }
+
+      if (selectedFile.size > MAX_FILE_SIZE) {
+        setMessage("Please select a video file under 500MB")
+        return
+      }
+
+      setFile(selectedFile)
+
       setFile(event.target.files[0]);
     }
   };
@@ -44,6 +78,8 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
       if (response.ok) {
         setMessage("File uploaded successfully!");
         setFileUrl(data.fileUrl);
+        setStrUrl(data.strUrl);
+
       } else {
         setMessage(`Upload failed: ${data.message}`);
       }
@@ -55,25 +91,18 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
   };
 
   return (
-    <div className="p-4 border rounded-lg shadow-md w-96 mx-auto">
+    <div className="p-4 border rounded-lg shadow-md w-96 mx-auto mb-5">
       <h2 className="text-lg font-bold mb-2">Upload Video File</h2>
       <input type="file" onChange={handleFileChange} className="mb-2" />
       <button
         onClick={handleUpload}
         disabled={uploading}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:opacity-50"
+        className="w-full px-4 py-2 bg-blue-500 text-white rounded-md disabled:opacity-50"
       >
         {uploading ? "Uploading..." : "Upload"}
       </button>
       
       {message && <p className="mt-2 text-sm text-gray-700">{message}</p>}
-      {fileUrl && (
-        <p className="mt-2">
-          <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-            View Uploaded File
-          </a>
-        </p>
-      )}
     </div>
   );
 }

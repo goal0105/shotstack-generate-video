@@ -57,9 +57,9 @@ function ConfigurationPanel({
           onChange={handleTextChange}
           placeholder="input the text to display video title"/>      
 
-        <CaptionSelection 
+        {/* <CaptionSelection 
           config={config} //seting caption
-          setConfig={setConfig}/>
+          setConfig={setConfig}/> */}
 
         <FileUpload
          config={config}

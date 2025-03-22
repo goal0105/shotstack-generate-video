@@ -8,3 +8,8 @@ export const imagePromptSchema = z.object({
   headline: z.string(),
   prompts: z.array(z.string())
 });
+
+export const languageSchema = z.object({
+  language: z.string(),
+});
+

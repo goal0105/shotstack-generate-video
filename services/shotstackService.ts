@@ -15,9 +15,9 @@ const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/v1';
 // const SHOTSTACK_API_URL = 'https://api.shotstack.io/edit/stage';
 const SHOTSTACK_API_KEY = process.env.SHOTSTACK_API_KEY || '';
 
-const CAPTION_ENGLISH = "https://shotstack-assets.s3.amazonaws.com/captions/transcript.srt";
+const CAPTION_ENGLISH = "https://roni-dev-storage.b-cdn.net/caption.srt";
 // const CAPTION_HEBREW = "https://raw.githubusercontent.com/goal0105/ref/refs/heads/main/captions/caption-1.srt";
-const CAPTION_HEBREW = "https://shotstackzone.b-cdn.net/captions/caption-1.srt";
+const CAPTION_HEBREW = "https://roni-dev-storage.b-cdn.net/caption111.srt";
 
 
 export const generateVideo = async (
@@ -55,12 +55,15 @@ export const generateVideo = async (
     captionSrc = CAPTION_HEBREW;
   }
   
+  captionSrc = CAPTION_HEBREW;
+
+  console.log('Str file : ', configData.strFile);
   console.log('Video file : ', configData.videoFile);
   
   const merge = [
     { find: 'VIDEO-FILE', replace : configData.videoFile},
     { find: 'video-title', replace: replaceVidoeTitle },
-    { find: 'caption-src', replace: captionSrc },
+    { find: 'caption-src', replace: configData.strFile},
     { find: 'headline', replace: 'Surprising Wildlife Wonders' },
     { find: 'voiceover', replace: 'wadup doc' },
     { find: 'image-prompt-1', replace: 'a sexy giraffe' },
@@ -72,7 +75,7 @@ export const generateVideo = async (
     { find: 'voice', replace: configData.voice }
   ];
 
-  console.log('merge', merge);
+  // console.log('merge', merge);
 
   const payload = {
     ...template,

@@ -1,6 +1,7 @@
 // You can edit this template on https://dashboard.shotstack.io/studio/overview
 import fs from "fs";
 import { auto } from "openai/_shims/registry.mjs";
+import { format } from "path";
 import SrtParser  from "srt-parser-2";
 
 interface Caption {
@@ -52,18 +53,14 @@ function generateClips(srtFilePath: string) :  Clip[] {
     clips.push({
       asset: {
         type: 'html',
-        html: `<p> Clip ${captions[i].text}</p>`,
-        css: "p {font-family: 'Open Sans'; color: #ffffff; font-size: 42px; text-align: center; }",
+        html: `<p> ${captions[i].text}</p>`,
+        css: "p {font-family: 'Rubik'; color: #ffffff; font-size: 26px; text-align: center;  direction: rtl; unicode-bidi: bidi-override;}",
       },
       start: captions[i].startSeconds, // Each clip starts after the previous one (6s duration)
-      length: captions[i].endSeconds,    
+      length: captions[i].endSeconds - captions[i].startSeconds,    
       offset: {
-        x: -0.25,
-        y: -0.16
-      },
-      transition: {
-        in: "fade",
-        out: "fade"
+        x: 0,
+        y: -0.45
       }
     });
   }
@@ -92,17 +89,17 @@ export const template = {
                   {
                       "asset": {
                           "type": "caption",
-                          "src": '{{ caption-src }}',
+                          "src": '{{caption-src}}',
                           "background": {
                             "color": "#0000FF",
                             "borderRadius": 2,
-                            "padding": 8,
-                            "opacity": 0.8
+                            "padding": 6,
+                            "opacity": 0.7
                         }, 
                         "font": {
                           "color": "#ffffff",
-                          "family": "Rubik",
-                          "size": 14,
+                          "family": "Rubik", 
+                          "size": 13,
                           "lineHeight": 0.8
                         },
                         "margin": {
@@ -114,6 +111,9 @@ export const template = {
                   }
               ]
           },
+          // {
+          //   clips
+          // },
           {
               "clips":[
                   {
@@ -139,6 +139,7 @@ export const template = {
             "clips": [
                 {
                     "asset": {
+                        "volume": 0,
                         "type": "video",
                         "src": '{{VIDEO-FILE}}'
                     },

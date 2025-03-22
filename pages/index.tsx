@@ -11,6 +11,7 @@ export default function HomePage() {
     videoTitle : '',
     caption : 'English',
     videoFile : ''
+    // strFile : ''
   });
 
   const { videoUrl, status, handleCreate } = useVideoGenerator(config);
