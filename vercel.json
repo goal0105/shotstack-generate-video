@@ -2,9 +2,8 @@
   "functions": {
     "app/api/**/*": {
       "maxDuration": 60,
-      "memory": 1024,  // Allocate more memory if needed
-      "maxRequestBodySize": "50mb"  // Set max request body size to 50MB
-      
+      "memory": 1024,  
+      "maxRequestBodySize": "50mb"  
     }
   }
 }
