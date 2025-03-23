@@ -63,16 +63,7 @@ export const generateVideo = async (
   const merge = [
     { find: 'VIDEO-FILE', replace : configData.videoFile},
     { find: 'video-title', replace: replaceVidoeTitle },
-    { find: 'caption-src', replace: configData.strFile},
-    { find: 'headline', replace: 'Surprising Wildlife Wonders' },
-    { find: 'voiceover', replace: 'wadup doc' },
-    { find: 'image-prompt-1', replace: 'a sexy giraffe' },
-    { find: 'image-prompt-2', replace: 'a sexy giraffe' },
-    { find: 'image-prompt-3', replace: 'a sexy giraffe' },
-    { find: 'image-prompt-4', replace: 'a sexy giraffe' },
-    { find: 'image-prompt-5', replace: 'a sexy giraffe' },
-    { find: 'image-prompt-6', replace: 'a sexy giraffe' },
-    { find: 'voice', replace: configData.voice }
+    { find: 'caption-src', replace: configData.strFile}
   ];
 
   // console.log('merge', merge);

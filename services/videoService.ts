@@ -37,7 +37,9 @@ const LANGUAGE_NAME_MAP: { [key: string]: string } = {
 export const detectLanguage = async (audioPath: string): Promise<string> => {
     console.info("Start language detection ...");
 
-    // console.log("Audio path:", audioPath);
+    console.log("Audio path:", audioPath);
+
+    console.log("Groq API KEY :" + process.env.GROQ_API_KEY || "")
 
     const groq = new Groq({ apiKey : process.env.GROQ_API_KEY || "" });
 
