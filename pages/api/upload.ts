@@ -70,7 +70,10 @@ async function uploadAudioFile(videoPath: string)
       }
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest, 
+  res: NextApiResponse) 
+  {
   if (req.method === 'POST') {
 
   console.log("Uploading file...");
@@ -134,7 +137,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const targetLang = "he";
     
     const transcribeResult = await transcribeWithGroq(audioPath, sourceLang, targetLang);
-    generateSrtFile(transcribeResult.segments);
+    // generateSrtFile(transcribeResult.segments);
 
     const srtBuffer = await generateSrtBuffer(transcribeResult.segments);
 
