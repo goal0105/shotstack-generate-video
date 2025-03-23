@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ConfigProps } from '@models/config';
 const ALLOWED_TYPES = ["video/mp4", "video/quicktime", "video/x-msvideo", "video/webm"]
-const MAX_FILE_SIZE = 50 * 1024 * 1024 // 50MB vercel size
+const MAX_FILE_SIZE = 4 * 1024 * 1024 // 50MB vercel size
 
 export default function FileUpload({ config, setConfig }: ConfigProps) {
   const [file, setFile] = useState<File | null>(null);

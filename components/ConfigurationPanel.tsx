@@ -23,8 +23,8 @@ function ConfigurationPanel({
   onCreate,
   status
 }: ConfigurationPanelProps) {
-  // const isValid = Object.values(config).every(option => option !== '');
-  let isValid = true;
+  const isValid = Object.values(config).every(option => option !== '');
+  // let isValid = true;
   const isDisabled =
     !isValid ||
     !(
