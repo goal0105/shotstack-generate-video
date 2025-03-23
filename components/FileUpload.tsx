@@ -71,7 +71,7 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
         body: formData,
       });
 
-
+      console.log("Response:", response);
       if (!response.ok) {
         const errorText = await response.text(); // Get error details
         throw new Error(`Upload failed: ${errorText}`);
