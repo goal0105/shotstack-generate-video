@@ -273,7 +273,9 @@ export const translateWithGroqFallback = async (
       //                     Maintain exact meaning, preserve numbers and proper nouns.`;
       // }
 
-      systemPrompt = `Translate the following text from ${sourceLang} to Hebrew. 
+      if (sourceLang === "he") return text;
+      
+      systemPrompt = `You are an expert Hebrew translator. Translate the following text from ${sourceLang} to Hebrew. 
                           Maintain exact meaning, preserve numbers and proper nouns.`;
 
       const completion = await groq.chat.completions.create
