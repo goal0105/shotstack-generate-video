@@ -69,7 +69,7 @@ function generateClips(srtFilePath: string) :  Clip[] {
   return clips;
 }
 
-const clips: Clip[] =  generateClips("public/captions/caption-1.srt");
+// const clips: Clip[] =  generateClips("public/captions/caption-1.srt");
 
 export const template = {
      "timeline":{
