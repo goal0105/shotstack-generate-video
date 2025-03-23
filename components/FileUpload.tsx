@@ -49,9 +49,7 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
         return
       }
 
-      setFile(selectedFile)
-
-      setFile(event.target.files[0]);
+      setFile(selectedFile);
     }
   };
 
@@ -66,10 +64,10 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
 
     const formData = new FormData();
     formData.append("file", file);
-
+   
     try {
       const response = await fetch("/api/upload", {
-        method: "POST",
+        method: 'POST',
         body: formData,
       });
 
