@@ -61,73 +61,73 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
       return;
     }
 
-    const reader = new FileReader();
+    // const reader = new FileReader();
 
-    reader.onloadend = async () => {
-      // Convert the ArrayBuffer to a Buffer (as used in Node.js)
-      const arrayBuffer = reader.result as ArrayBuffer;
-      const buffer = Buffer.from(arrayBuffer);
-      console.log("Buffer:", buffer);
+    // reader.onloadend = async () => {
+    //   // Convert the ArrayBuffer to a Buffer (as used in Node.js)
+    //   const arrayBuffer = reader.result as ArrayBuffer;
+    //   const buffer = Buffer.from(arrayBuffer);
+    //   console.log("Buffer:", buffer);
   
-      try {
-      //   const response = await fetch("/api/upload", {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/octet-stream',  // Specify the content type
-      //     },
-      //     body: buffer,  // Send the file buffer in the request body
-      //   });
+    //   try {
+    //   //   const response = await fetch("/api/upload", {
+    //   //     method: 'POST',
+    //   //     headers: {
+    //   //       'Content-Type': 'application/octet-stream',  // Specify the content type
+    //   //     },
+    //   //     body: buffer,  // Send the file buffer in the request body
+    //   //   });
   
-      //   if (!response.ok) {
-      //     const errorText = await response.text(); // Get error details
-      //     throw new Error(`Upload failed: ${errorText}`);
-      //   }
+    //   //   if (!response.ok) {
+    //   //     const errorText = await response.text(); // Get error details
+    //   //     throw new Error(`Upload failed: ${errorText}`);
+    //   //   }
   
-      //   const data = await response.json();
+    //   //   const data = await response.json();
   
-      //   setMessage("File uploaded successfully!");
-      //   setFileUrl(data.fileUrl);
-      //   setStrUrl(data.strUrl);
+    //   //   setMessage("File uploaded successfully!");
+    //   //   setFileUrl(data.fileUrl);
+    //   //   setStrUrl(data.strUrl);
   
-      } catch (error) {
-        setMessage("An error occurred while uploading: " + error);
-      } finally {
-        setUploading(false);
-      }
-    };
-  
-    // Read the file as an ArrayBuffer (binary data)
-    reader.readAsArrayBuffer(file);
-
-    // setUploading(true);
-    // setMessage("");
-
-    // const formData = new FormData();
-    // formData.append("file", file);
-   
-    // try {
-    //   const response = await fetch("/api/upload", {
-    //     method: 'POST',
-    //     body: formData,
-    //   });
-
-    //   console.log("Response:", response);
-    //   if (!response.ok) {
-    //     const errorText = await response.text(); // Get error details
-    //     throw new Error(`Upload failed: ${errorText}`);
+    //   } catch (error) {
+    //     setMessage("An error occurred while uploading: " + error);
+    //   } finally {
+    //     setUploading(false);
     //   }
+    // };
+  
+    // // Read the file as an ArrayBuffer (binary data)
+    // reader.readAsArrayBuffer(file);
 
-    //   const data = await response.json();
+    setUploading(true);
+    setMessage("");
 
-    //   setMessage("File uploaded successfully!");
-    //   setFileUrl(data.fileUrl);
-    //   setStrUrl(data.strUrl);
+    const formData = new FormData();
+    formData.append("file", file);
+   
+    try {
+      const response = await fetch("/api/upload", {
+        method: 'POST',
+        body: formData,
+      });
 
-    // } catch (error) {
-    //   setMessage("An error occurred while uploading." + error);
-    // } finally {
-    //   setUploading(false);
-    // }
+      console.log("Response:", response);
+      if (!response.ok) {
+        const errorText = await response.text(); // Get error details
+        throw new Error(`Upload failed: ${errorText}`);
+      }
+
+      const data = await response.json();
+
+      setMessage("File uploaded successfully!");
+      setFileUrl(data.fileUrl);
+      setStrUrl(data.strUrl);
+
+    } catch (error) {
+      setMessage("An error occurred while uploading." + error);
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
