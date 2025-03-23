@@ -83,6 +83,7 @@ export const generateVideo = async (
   };
 
   console.log('payload', payload);
+  console.log('SHOTSTACK API KEY : ', SHOTSTACK_API_KEY);
 
   const response = await fetch(`${SHOTSTACK_API_URL}/render`, {
     method: 'POST',
