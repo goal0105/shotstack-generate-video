@@ -54,6 +54,8 @@ export default function FileUpload({ config, setConfig }: ConfigProps) {
   };
 
   const handleUpload = async () => {
+
+    console.log("Uploading file...");
     if (!file) {
       setMessage("Please select a file to upload.");
       return;
