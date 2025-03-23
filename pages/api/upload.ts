@@ -16,6 +16,10 @@ export const config = {
 const BUNNY_STORAGE_ZONE = process.env.BUNNY_STORAGE_ZONE || '';
 const BUNNY_PULL_ZONE = process.env.BUNNY_PULL_ZONE || '';
 const BUNNY_API_KEY = process.env.BUNNY_API_KEY || '';
+
+// const BUNNY_STORAGE_ZONE = "roni-dev-storage";
+// const BUNNY_PULL_ZONE = "roni-dev-storage"
+// const BUNNY_API_KEY = "bbbb63e5-b664-409d-847c8e76e4c5-0114-4777";
 const BUNNY_API_BASE_URL = 'https://storage.bunnycdn.com';
 const BUNNY_LINKED_HOSTNAME = `${BUNNY_PULL_ZONE}.b-cdn.net`;
 

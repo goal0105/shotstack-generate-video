@@ -39,7 +39,7 @@ export const detectLanguage = async (audioPath: string): Promise<string> => {
 
     // console.log("Audio path:", audioPath);
 
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "" });
+    const groq = new Groq({ apiKey : process.env.GROQ_API_KEY || "" });
 
     const transcriptionResponse = await groq.audio.transcriptions.create({
         url: audioPath,
